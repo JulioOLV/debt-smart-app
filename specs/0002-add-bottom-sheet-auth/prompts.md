@@ -1,6 +1,6 @@
 # Spec
 
-Goataria de implementar um Bottom Sheet de autenticação dentro da minha tela de Onboarding (rota /walcome). Este Bottom Sheet deve aparecer assim que o usuário clicar no botão "Começar meu plano".
+Gostaria de implementar um Bottom Sheet de autenticação dentro da minha tela de Onboarding (rota /walcome). Este Bottom Sheet deve aparecer assim que o usuário clicar no botão "Começar meu plano".
 
 O Bottom Sheet deve seguir a seguinte estrutura de layout:
 
@@ -113,7 +113,7 @@ Gere o spec completo incluindo a mesma descrição do wireframe no diretório 's
 
 Neste momento, crie apenas o spec dentro do diretório que lhe informei e foque apenas na criação do layout (integração com o Google Auth ou integrações com APIs nós faremos em um outro momento).
 
-Caso não exista todos os componentes promitivos necessários para a criação do Bottom Sheet, por favor, considere que os mesmos devem ser criados dentro do diretório 'src/components/ui'.
+Caso não exista todos os componentes primitivos necessários para a criação do Bottom Sheet, por favor, considere que os mesmos devem ser criados dentro do diretório 'src/components/ui'.
 
 NÃO ASSUMA NADA, qualquer ambiguidade ou falta de informação me pergunte.
 
