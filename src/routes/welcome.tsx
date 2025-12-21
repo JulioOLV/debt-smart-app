@@ -1,11 +1,16 @@
+import { useState } from 'react';
+
 import { createFileRoute } from '@tanstack/react-router';
 import { Lock, TrendingUp } from 'lucide-react';
 
+import { AuthBottomSheet } from '@/components/AuthBottomSheet';
 import { Button } from '@/components/ui/Button';
 
 function Welcome() {
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
   return (
-    <div className="bg-background relative flex h-screen w-full flex-col md:items-center md:justify-center">
+    <div className="bg-background relative h-screen w-full flex-col overflow-hidden md:items-center md:justify-center">
       <div className="h-full w-full md:my-auto md:flex md:h-auto md:max-w-md md:flex-col md:shadow-xl">
         <div className="relative min-h-[45%] flex-1 overflow-hidden bg-blue-200/30">
           <div className="absolute inset-0 flex items-center justify-center bg-blue-100">
@@ -25,7 +30,10 @@ function Welcome() {
             </p>
           </div>
           <div className="absolute right-0 bottom-12 left-0 space-y-4 px-6 md:left-1/2 md:max-w-md md:-translate-x-1/2">
-            <Button className="h-14 w-full rounded-xl bg-blue-800 text-lg font-semibold text-white hover:bg-blue-900">
+            <Button
+              className="h-14 w-full rounded-xl bg-blue-800 text-lg font-semibold text-white hover:bg-blue-900"
+              onClick={() => setIsAuthOpen(true)}
+            >
               Começar meu plano
             </Button>
             <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
@@ -35,6 +43,7 @@ function Welcome() {
           </div>
         </div>
       </div>
+      <AuthBottomSheet open={isAuthOpen} onOpenChange={setIsAuthOpen} />
     </div>
   );
 }
