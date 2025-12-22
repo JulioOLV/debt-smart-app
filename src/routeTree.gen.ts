@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as OnboardingStep2RouteImport } from './routes/onboarding-step2'
 import { Route as OnboardingStep1RouteImport } from './routes/onboarding-step1'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WelcomeRoute = WelcomeRouteImport.update({
   id: '/welcome',
   path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingStep2Route = OnboardingStep2RouteImport.update({
+  id: '/onboarding-step2',
+  path: '/onboarding-step2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingStep1Route = OnboardingStep1RouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/onboarding-step1': typeof OnboardingStep1Route
+  '/onboarding-step2': typeof OnboardingStep2Route
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/onboarding-step1': typeof OnboardingStep1Route
+  '/onboarding-step2': typeof OnboardingStep2Route
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/onboarding-step1': typeof OnboardingStep1Route
+  '/onboarding-step2': typeof OnboardingStep2Route
   '/welcome': typeof WelcomeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/onboarding-step1' | '/welcome'
+  fullPaths: '/' | '/onboarding-step1' | '/onboarding-step2' | '/welcome'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/onboarding-step1' | '/welcome'
-  id: '__root__' | '/' | '/onboarding-step1' | '/welcome'
+  to: '/' | '/onboarding-step1' | '/onboarding-step2' | '/welcome'
+  id: '__root__' | '/' | '/onboarding-step1' | '/onboarding-step2' | '/welcome'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   OnboardingStep1Route: typeof OnboardingStep1Route
+  OnboardingStep2Route: typeof OnboardingStep2Route
   WelcomeRoute: typeof WelcomeRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/welcome'
       fullPath: '/welcome'
       preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding-step2': {
+      id: '/onboarding-step2'
+      path: '/onboarding-step2'
+      fullPath: '/onboarding-step2'
+      preLoaderRoute: typeof OnboardingStep2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding-step1': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   OnboardingStep1Route: OnboardingStep1Route,
+  OnboardingStep2Route: OnboardingStep2Route,
   WelcomeRoute: WelcomeRoute,
 }
 export const routeTree = rootRouteImport
