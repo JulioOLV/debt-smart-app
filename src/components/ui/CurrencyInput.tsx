@@ -12,6 +12,8 @@ interface CurrencyInputProps extends Omit<
   onChange?: (value: number) => void;
   placeholder?: string;
   autoFocus?: boolean;
+  label?: string;
+  helperText?: string;
 }
 
 const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
@@ -21,6 +23,8 @@ const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
       onChange,
       placeholder = 'R$ 0,00',
       autoFocus,
+      label,
+      helperText,
       className,
       ...props
     },
@@ -65,6 +69,8 @@ const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
+        label={label}
+        helperText={helperText}
         className={cn(
           'h-16 w-full rounded-2xl px-4 text-2xl font-medium',
           isFocused
