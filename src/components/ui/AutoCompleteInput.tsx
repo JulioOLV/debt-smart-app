@@ -23,7 +23,7 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
           <input
             list={datalistId}
             className={cn(
-              'h-12 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none',
+              'h-16 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none',
               className,
             )}
             ref={ref}

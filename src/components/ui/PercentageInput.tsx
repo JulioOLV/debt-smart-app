@@ -73,7 +73,7 @@ const PercentageInput = forwardRef<HTMLInputElement, PercentageInputProps>(
         placeholder={placeholder}
         label={label}
         helperText={helperText}
-        className={cn('text-right', className)}
+        className={cn('h-16 text-right', className)}
         {...props}
       />
     );

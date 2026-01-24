@@ -141,7 +141,7 @@ const AddDebtBottomSheet: React.FC<AddDebtBottomSheetProps> = ({
               Dia do vencimento
             </label>
             <Select value={dueDay} onValueChange={setDueDay}>
-              <SelectTrigger className="w-full rounded-lg border border-blue-600 bg-white px-4 py-3.5 font-medium text-slate-900 outline-none focus:ring-2 focus:ring-blue-600">
+              <SelectTrigger className="h-16 w-full rounded-lg border border-blue-600 bg-white px-4 py-3.5 font-medium text-slate-900 outline-none focus:ring-2 focus:ring-blue-600">
                 <SelectValue placeholder="Selecione o dia" />
               </SelectTrigger>
               <SelectContent>
