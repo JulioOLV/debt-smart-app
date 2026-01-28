@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { ArrowLeft, Plus } from 'lucide-react';
 
+import { AddDebtBottomSheet } from '@/components/AddDebtBottomSheet';
 import { Button } from '@/components/ui/Button';
 import { ProgressBar } from '@/components/ui/ProgressBar';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/Sheet';
 
 const OnboardingStep2: React.FC = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -106,8 +106,10 @@ const OnboardingStep2: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-slate-100 bg-white p-6">
-        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-          <SheetTrigger asChild>
+        <AddDebtBottomSheet
+          open={isSheetOpen}
+          onOpenChange={setIsSheetOpen}
+          trigger={
             <Button
               className="flex h-14 w-full items-center justify-center gap-2 rounded-2xl bg-blue-800 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-blue-900 active:scale-[0.98] active:bg-blue-950"
               aria-label="Adicionar primeira conta à lista"
@@ -115,17 +117,8 @@ const OnboardingStep2: React.FC = () => {
               <Plus className="h-5 w-5" />
               Adicionar primeira conta
             </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <div className="p-4">
-              <h2 className="text-lg font-semibold">Adicionar Conta</h2>
-              <p className="text-sm text-slate-600">
-                Estrutura do bottom sheet para cadastro de dívida.
-              </p>
-              {/* Placeholder content */}
-            </div>
-          </SheetContent>
-        </Sheet>
+          }
+        />
       </footer>
     </div>
   );
